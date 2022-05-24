@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:practice_image_keybord/provider/progress_provider.dart';
+import 'package:practice_image_keybord/view/result_page.dart';
 
 class HomePage extends ConsumerWidget {
   final TextEditingController _controller = TextEditingController();
@@ -39,6 +41,8 @@ class HomePage extends ConsumerWidget {
   }
 
   _toSend(BuildContext context, WidgetRef ref) {
+    Navigator.push(context, MaterialPageRoute(builder: (_) => ResultPage()),);
+    ref.read(inputWordProvider.notifier).state = _controller.text;
 
   }
 }
